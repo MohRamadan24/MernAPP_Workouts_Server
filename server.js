@@ -9,11 +9,6 @@ const cors = require('cors')
 // express app
 const app = express()
 
-// cors
-app.use(cors({
-  origin: "https://mernappworkouts-production.up.railway.app/"
-}))
-
 // middleware
 app.use(express.json())
 
@@ -34,6 +29,10 @@ mongoose.connect(process.env.MONGO_URI)
     app.listen(process.env.PORT, () => {
       console.log('listening for requests on port', process.env.PORT)
     })
+    // cors
+    app.use(cors({
+      origin: "https://mernappworkouts-production.up.railway.app/"
+    }))
   })
   .catch((err) => {
     console.log(err)
