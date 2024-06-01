@@ -4,6 +4,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
+const cors = require('cors')
 
 // express app
 const app = express()
@@ -26,8 +27,12 @@ mongoose.connect(process.env.MONGO_URI)
     console.log('connected to database')
     // listen to port
     app.listen(process.env.PORT, () => {
-      console.log('listening for requests on port', process.env.PORT)
+      console.log(' >_< istening for requests on port', process.env.PORT)
     })
+    // cors
+    app.use(cors({
+      origin: "https://mernappworkouts-production.up.railway.app"
+    }))
   })
   .catch((err) => {
     console.log(err)
