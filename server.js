@@ -31,7 +31,7 @@ mongoose.connect(process.env.MONGO_URI)
     })
     // cors
     app.use(cors({
-      origin: "https://mernappworkouts-production.up.railway.app:3000"
+      origin: "https://mernappworkouts-production.up.railway.app"
     }))
   })
   .catch((err) => {
